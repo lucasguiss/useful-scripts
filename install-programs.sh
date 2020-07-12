@@ -17,21 +17,19 @@ cd Downloads/
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
+# Installing Spotify
+sudo sh -c "echo 'deb http://repository.spotify.com stable non-free' >> /etc/apt/sources.list.d/spotify.list"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+sudo apt-get update
+sudo apt-get install spotify-client
+
 if [[ $OS == *"$X64"* ]]
 then
-    # Installing Spotify
-    wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.47.13.gd8e05b1f-47_amd64.deb
-    sudo dpkg -i spotify-client_1.0.47.13.gd8e05b1f-47_amd64.deb
-
     # Installing DBeaver
     wget -c https://dbeaver.io/files/6.0.0/dbeaver-ce_6.0.0_amd64.deb
     sudo dpkg -i dbeaver-ce_6.0.0_amd64.deb
     sudo apt-get install -f
 else
-    # Installing Spotify
-    wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.47.13.gd8e05b1f-16_i386.deb
-    sudo dpkg -i spotify-client_1.0.47.13.gd8e05b1f-16_i386.deb
-
     # Installing DBeaver
     wget -c https://dbeaver.io/files/6.0.0/dbeaver-ce_6.0.0_i386.deb
     sudo dpkg -i dbeaver-ce_6.0.0_i386.deb
